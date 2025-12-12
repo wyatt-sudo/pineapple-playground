@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      background: #ffffff !important;
+      color: #1a1a1a !important;
+      color-scheme: light only;
+    }
+    body {
+      font-family: Georgia, serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .masthead {
+      text-align: center;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .logo {
+      font-family: "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    .logo-accent {
+      color: #8b0000;
+    }
+    .tagline {
+      font-size: 11px;
+      font-style: italic;
+      color: #666;
+      letter-spacing: 1px;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 10px 0;
+      border-bottom: 3px double #333;
+      margin-bottom: 25px;
+      color: #444;
+    }
+    .nav span:hover {
+      color: #8b0000;
+      cursor: pointer;
+    }
+    .header {
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 15px 0;
+      font-weight: normal;
+      color: #1a1a1a;
+    }
+    .breaking {
+      background: #8b0000;
+      color: white;
+      padding: 3px 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
+    .subtitle {
+      font-style: italic;
+      color: #444;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .byline {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .featured-image {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      border: 1px solid #ccc;
+    }
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .caption {
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .article-body {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .article-body p {
+      margin-bottom: 16px;
+      text-align: justify;
+      color: #1a1a1a;
+    }
+    .quote {
+      border-left: 3px solid #8b0000;
+      padding-left: 20px;
+      margin: 25px 0;
+      font-style: italic;
+      color: #333;
+    }
+    .sidebar {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    .sidebar-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8b0000;
+      margin-bottom: 15px;
+      font-family: Arial, sans-serif;
+    }
+    .related-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+    }
+    .related-item:last-child {
+      border-bottom: none;
+    }
+    .related-item a {
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    .related-item a:hover {
+      color: #8b0000;
+    }
+    .related-date {
+      font-size: 11px;
+      color: #888;
+      margin-top: 3px;
+    }
+    .related-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 6px;
+      margin-right: 6px;
+      color: white;
+    }
+    .tag-exclusive { background: #8b0000; }
+    .tag-opinion { background: #555; }
+    .tag-hot { background: #cc4400; }
+    .tag-developing { background: #2a5a8a; }
+    .developing {
+      font-style: italic;
+      color: #666;
+      margin-top: 30px;
+      font-size: 14px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 3px double #333;
+      text-align: center;
+      font-size: 11px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="logo">The International <span class="logo-accent">Microbial</span> Observer</div>
+    <div class="tagline">"All the News That's Fit to Culture" • Est. 1887</div>
+  </div>
+  
+  <div class="nav">
+    <span>World</span>
+    <span>Immunity</span>
+    <span>Diplomacy</span>
+    <span>Host Relations</span>
+    <span>Opinion</span>
+    <span>Cytokines</span>
+  </div>
+
+  <div class="header">
+    <h1><span class="breaking">Breaking</span> Bartonella Community Announces Historic Holiday Ceasefire</h1>
+    <div class="subtitle">Bacterial coalition agrees to suspend all party activities through New Year; promises "period of quiet reflection"</div>
+    <div class="byline">By Dr. Helena Voss, Diplomatic Correspondent | December 12, 2025</div>
+  </div>
+  
+  <div class="featured-image">
+    <img src="https://i.postimg.cc/hGJjfq5F/C4FE9A47-06D4-4447-AF53-75D7A75DF43B.png" alt="Bartonella representatives at press conference" referrerpolicy="no-referrer" loading="eager">
+  </div>
+  <div class="caption">Members of the Bartonella Popular Front address the international immunity press corps early Thursday morning. The delegation declined to make eye contact with host representatives. (Photo: Cytokine News Service)</div>
+  
+  <div class="article-body">
+    <p>KAROLINA'S BLOODSTREAM — In a stunning diplomatic breakthrough, representatives of the Bartonella community have announced an immediate and unconditional ceasefire on all party activities, effective through January 1, 2026.</p>
+    
+    <p>The announcement, delivered early this morning via cytokine signal, marks the first formal acknowledgment by the bacterial coalition that their celebrations may have caused what officials are calling "unreasonable host distress."</p>
+    
+    <div class="quote">"We have heard the concerns of the international community and the host body," said a spokesperson for the Bartonella Popular Front. "This holiday season, we will not party. We will sit. We will think. We will seriously consider whether our actions have been, as alleged, 'unwelcome.'"</div>
+    
+    <p>The agreement comes after months of aggressive herbal interventions that sources describe as "very rude" and "not chill at all." Bartonella leadership had previously maintained that their gatherings were "just a little fun" and "barely even a cytokine storm."</p>
+    
+    <div class="sidebar">
+      <div class="sidebar-title">Related Coverage</div>
+      <div class="related-item">
+        <a href="#"><span class="related-tag tag-exclusive">Exclusive</span> Hydrogen Gas Device Arrives: Babesia Leadership Calls Emergency Meeting, Sources Say "Panic in the Membranes"</a>
+        <div class="related-date">December 11, 2025</div>
+      </div>
+      <div class="related-item">
+        <a href="#"><span class="related-tag tag-developing">Developing</span> Idaho Theory Gains Traction: Tick-Borne Coalition Alleges "Suspicious Herbal Pipeline," Warns of Potential "Rapture Event" if Host Returns</a>
+        <div class="related-date">December 9, 2025</div>
+      </div>
+      <div class="related-item">
+        <a href="#"><span class="related-tag tag-hot">Hot</span> Ketotifen: Antihistamine or Aphrodisiac? Surprising New Research Suggests "Enhanced Efficacy Through Romance"</a>
+        <div class="related-date">December 7, 2025</div>
+      </div>
+      <div class="related-item">
+        <a href="#"><span class="related-tag tag-opinion">Opinion</span> The Carrots: A Official Statement from the United Microbial Council</a>
+        <div class="related-date">December 6, 2025</div>
+      </div>
+    </div>
+    
+    <p>Under the terms of the ceasefire, all Bartonella-affiliated organisms have agreed to: remain dormant during travel periods, refrain from inflammatory activities during rest hours, and submit to ongoing herbal oversight without complaint.</p>
+    
+    <p>When asked whether the community was prepared to make the ceasefire permanent, the spokesperson paused for an uncomfortable length of time before responding.</p>
+    
+    <div class="quote">"We are... considering our options. The host has made her position clear. We acknowledge that perhaps—and we stress <em>perhaps</em>—we have been too enthusiastic in our celebrations. This is a time for reflection, not promises."</div>
+    
+    <p>International observers have cautiously welcomed the announcement, though some remain skeptical. "We've seen temporary ceasefires before," noted one longtime immunity correspondent. "The real question is what happens when the herbs run low."</p>
+    
+    <p>The Babesia community, a longtime ally of the Bartonella coalition, released a terse statement indicating they were "monitoring the situation" but appeared distracted by what sources described as "an emerging hydrogen-related crisis."</p>
+    
+    <p>When pressed for comment on the recent carrot developments, a representative for the United Microbial Council stated simply: "We have no comment on the carrots. We will not be taking questions about the carrots. The matter of the carrots is closed."</p>
+    
+    <p>The host could not be reached for comment, as she was reportedly napping peacefully for the first time in weeks.</p>
+    
+    <p class="developing">Developing story. Updates to follow.</p>
+  </div>
+  
+  <div class="footer">
+    © 2025 The International Microbial Observer • All Rights Reserved<br>
+    Proudly serving the host-microbe diplomatic community since 1887
+  </div>
+</body>
+</html>
