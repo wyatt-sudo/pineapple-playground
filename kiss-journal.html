@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      background: #f5f5f5 !important;
+      color: #1a1a1a !important;
+      color-scheme: light only;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+      color: white;
+      padding: 15px 20px;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: -0.5px;
+    }
+    .logo-sub {
+      font-size: 11px;
+      opacity: 0.8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav {
+      background: #2c5282;
+      padding: 8px 20px;
+      display: flex;
+      gap: 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+    }
+    .nav span:hover {
+      color: white;
+      cursor: pointer;
+    }
+    .search-container {
+      background: white;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f0f4f8;
+      border: 2px solid #2c5282;
+      border-radius: 4px;
+      padding: 10px 15px;
+      max-width: 800px;
+    }
+    .search-icon {
+      color: #666;
+      margin-right: 10px;
+    }
+    .search-text {
+      color: #1a1a1a;
+      font-size: 14px;
+    }
+    .results-bar {
+      background: #e8eef4;
+      padding: 12px 20px;
+      font-size: 13px;
+      color: #444;
+      border-bottom: 1px solid #ddd;
+    }
+    .results-count {
+      font-weight: 600;
+    }
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+    .filter {
+      background: white;
+      padding: 4px 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      color: #555;
+    }
+    .filter.active {
+      background: #2c5282;
+      color: white;
+      border-color: #2c5282;
+    }
+    .content {
+      max-width: 900px;
+      padding: 20px;
+    }
+    .article {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .article-type {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .type-research { background: #2c5282; }
+    .type-review { background: #6b46c1; }
+    .type-letter { background: #c05621; }
+    .type-clinical { background: #276749; }
+    .type-breakthrough { background: #c53030; }
+    .article-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a365d;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+    .article-title:hover {
+      color: #2c5282;
+      text-decoration: underline;
+    }
+    .article-authors {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+    .article-journal {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .article-journal em {
+      color: #666;
+    }
+    .article-abstract {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.6;
+      border-left: 3px solid #e0e0e0;
+      padding-left: 12px;
+      margin-top: 10px;
+    }
+    .article-stats {
+      display: flex;
+      gap: 20px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: #888;
+    }
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .highlight {
+      background: #fff3cd;
+      padding: 0 2px;
+    }
+    .cited-high {
+      color: #c53030;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">PubMed<span style="opacity: 0.7; font-weight: normal;">.gov</span></div>
+    <div class="logo-sub">National Library of Medicine • National Institutes of Health</div>
+  </div>
+  
+  <div class="nav">
+    <span>Advanced Search</span>
+    <span>Filters</span>
+    <span>Clipboard</span>
+    <span>My Bibliography</span>
+    <span>Collections</span>
+  </div>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <span class="search-text">efficacy of full body kisses for Karolina's chronic bacterial infections</span>
+    </div>
+  </div>
+  
+  <div class="results-bar">
+    <span class="results-count">47 results</span> sorted by Best Match
+    <div class="filters">
+      <span class="filter active">All</span>
+      <span class="filter">Clinical Trial</span>
+      <span class="filter">Review</span>
+      <span class="filter">Case Reports</span>
+      <span class="filter">Free Full Text</span>
+    </div>
+  </div>
+  
+  <div class="content">
+    
+    <div class="article">
+      <span class="article-type type-breakthrough">Breakthrough Article</span>
+      <div class="article-title">Dose-dependent suppression of Bartonella henselae party behavior via sustained osculation therapy in a single-patient model (K. Body)</div>
+      <div class="article-authors">Voss H, Chen W, Sudo W, et al.</div>
+      <div class="article-journal"><em>Nature Medicine</em> • 2025 Dec;31(12):2847-2859 • doi: 10.1038/nm.2025.1247</div>
+      <div class="article-abstract">
+        <strong>Background:</strong> Chronic tick-borne infections remain challenging to treat with conventional antimicrobials. We investigated the therapeutic potential of <span class="highlight">full-body kiss (FBK) therapy</span> in a single patient with refractory Bartonella and Babesia co-infection. <strong>Results:</strong> Administration of 25+ kisses/day resulted in complete suppression of bacterial "party activity" (p<0.001) and resolution of cytokine storms within 14 days. Notably, the Bartonella community issued a formal ceasefire following sustained intervention.
+      </div>
+      <div class="article-stats">
+        <span class="stat cited-high">🔥 Cited by 847</span>
+        <span class="stat">📄 Free full text</span>
+        <span class="stat">⭐ Highly accessed</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-research">Research Article</span>
+      <div class="article-title">Osculation-induced suppression of bacterial quorum sensing via the oxytocin-interleukin-10 axis</div>
+      <div class="article-authors">Nakamura K, Williams R, Johansson L, Sudo W.</div>
+      <div class="article-journal"><em>Cell Host & Microbe</em> • 2025 Nov;33(11):1122-1138 • doi: 10.1016/j.chom.2025.09.004</div>
+      <div class="article-abstract">
+        We demonstrate that romantic kissing triggers oxytocin release, which in turn upregulates IL-10 in mucosal tissues. This anti-inflammatory cascade disrupts <span class="highlight">Bartonella quorum sensing</span>, preventing the coordinated "party" behavior observed during cytokine storm events. Single-cell RNA-seq of bacteria isolated from the K. Body system revealed widespread transcriptional confusion following kiss exposure.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 234</span>
+        <span class="stat">📄 Free full text</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-clinical">Clinical Trial</span>
+      <div class="article-title">A randomized, affection-controlled trial of kiss therapy for chronic Lyme and associated co-infections: The SMOOCH Study</div>
+      <div class="article-authors">Peterson M, Andersson G, Sudo W, Chen L, et al.</div>
+      <div class="article-journal"><em>The Lancet Infectious Diseases</em> • 2025 Oct;25(10):1087-1099 • doi: 10.1016/S1473-3099(25)00412-8</div>
+      <div class="article-abstract">
+        <strong>Methods:</strong> 1 patient (the K. Body cohort) was randomized to receive either standard herbal protocol alone or herbal protocol plus intensive kiss therapy (IKT). <strong>Findings:</strong> The IKT arm demonstrated 94% reduction in fatigue scores, complete resolution of "doorknob suspicion," and a statistically significant increase in peaceful napping (p<0.0001). The Babesia community declined to comment.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 189</span>
+        <span class="stat">📄 Free PMC article</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-review">Review</span>
+      <div class="article-title">Alternative and complementary approaches to tick-borne illness: A critical appraisal with unexpected findings in the K. Body literature</div>
+      <div class="article-authors">Greenwald S, Harrison T, Morris A.</div>
+      <div class="article-journal"><em>Clinical Microbiology Reviews</em> • 2025 Sep;38(3):e00127-25 • doi: 10.1128/CMR.00127-25</div>
+      <div class="article-abstract">
+        We set out to critically evaluate non-pharmacological interventions for chronic tick-borne infections, expecting to find minimal evidence. Surprisingly, the <span class="highlight">K. Body case series</span> presents compelling data for kiss-based immunomodulation. We remain scientifically skeptical yet professionally intrigued. The hydrogen gas and carrot interventions require further study.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 156</span>
+        <span class="stat">📄 Free full text</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-research">Research Article</span>
+      <div class="article-title">Lip-derived antimicrobial peptides (LDAPs) and their role in Bartonella membrane disruption: Evidence from the Karolina cohort</div>
+      <div class="article-authors">Fernandez M, O'Brien K, Sudo W, Tanaka H.</div>
+      <div class="article-journal"><em>Journal of Biological Chemistry</em> • 2025 Aug;300(8):107892 • doi: 10.1016/j.jbc.2025.107892</div>
+      <div class="article-abstract">
+        We isolated novel antimicrobial peptides from lip epithelium during active kissing and characterized their mechanism of action. LDAPs insert into Bartonella membranes, causing immediate cessation of flagellar movement and what subjects described as a "general vibe of defeat." Cryo-EM structures reveal bacteria adopting a "slumped" morphology post-exposure.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 98</span>
+        <span class="stat">📄 Free full text</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-letter">Letter to the Editor</span>
+      <div class="article-title">Ketotifen as aphrodisiac: Unintended enhancement of kiss therapy efficacy through mast cell stabilization</div>
+      <div class="article-authors">Ramirez J, Sudo W.</div>
+      <div class="article-journal"><em>Journal of Allergy and Clinical Immunology</em> • 2025 Jul;156(1):245-247 • doi: 10.1016/j.jaci.2025.04.018</div>
+      <div class="article-abstract">
+        We report an unexpected observation: ketotifen administration appears to enhance romantic receptivity and kiss therapy outcomes in the K. Body model. Whether this reflects reduced histamine-mediated irritability or a direct pro-affection mechanism remains unclear. Further investigation is warranted and, frankly, encouraged.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 67</span>
+        <span class="stat">💬 12 Comments</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-research">Research Article</span>
+      <div class="article-title">The Kiss-Gut-Brain axis: How romantic contact modulates host-pathogen dynamics in chronic Borreliosis</div>
+      <div class="article-authors">Liu Y, Bergström K, Patel S, Sudo W, et al.</div>
+      <div class="article-journal"><em>Gut Microbes</em> • 2025 Jun;17(1):2298847 • doi: 10.1080/19490976.2025.2298847</div>
+      <div class="article-abstract">
+        Using metabolomic and transcriptomic profiling, we traced the systemic effects of kiss therapy from initial lip contact through vagal nerve activation to gut microbiome remodeling. Firmicutes populations increased by 340% following a 2-week kissing protocol, while pathogenic spirochetes exhibited "marked distress signals." The <span class="highlight">Bartonella delegation</span> was unavailable for microbiome sampling.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 112</span>
+        <span class="stat">📄 Free PMC article</span>
+      </div>
+    </div>
+
+    <div class="article">
+      <span class="article-type type-clinical">Case Report</span>
+      <div class="article-title">Resolution of chronic fatigue and cytokine dysregulation following Idaho herbal protocol combined with long-distance affection therapy: A single-patient longitudinal study</div>
+      <div class="article-authors">Sudo W, Anonymous Lithuanian Collaborator.</div>
+      <div class="article-journal"><em>BMJ Case Reports</em> • 2025 May;18:e248156 • doi: 10.1136/bcr-2025-248156</div>
+      <div class="article-abstract">
+        We present the case of a Lithuanian female with 5+ year history of chronic Lyme, Bartonella, and Babesia co-infection. Following initiation of Idaho-sourced herbal antimicrobials and concurrent remote kiss-based support, inflammatory markers normalized and energy levels improved. Patient reported "finally being able to nap in peace." The microbial community issued no comment regarding carrots.
+      </div>
+      <div class="article-stats">
+        <span class="stat">Cited by 43</span>
+        <span class="stat">📄 Free full text</span>
+        <span class="stat">❤️ Patient-reported outcomes</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
