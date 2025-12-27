@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      background: linear-gradient(180deg, #0891b2 0%, #0e7490 50%, #155e75 100%) !important;
+      color: #1a1a1a !important;
+      color-scheme: light only;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: flash 1.5s infinite;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    .hero {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "🌴 ☀️ 🌊 🌴 ☀️ 🌊 🌴 ☀️ 🌊";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      font-size: 20px;
+      letter-spacing: 15px;
+      opacity: 0.3;
+    }
+    .hero::after {
+      content: "🌊 🌴 ☀️ 🌊 🌴 ☀️ 🌊 🌴 ☀️";
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      font-size: 20px;
+      letter-spacing: 15px;
+      opacity: 0.3;
+    }
+    .clinic-name {
+      font-size: 16px;
+      color: #fef3c7;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      color: white;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+      margin: 0 0 10px 0;
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: 22px;
+      color: #fef3c7;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .hero-cta {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #1a1a1a;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .problem-section {
+      background: #1a1a1a;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .problem-section h2 {
+      font-size: 28px;
+      color: #fbbf24;
+      margin: 0 0 20px 0;
+    }
+    .symptoms {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .symptom {
+      text-align: center;
+      max-width: 150px;
+    }
+    .symptom-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .symptom-text {
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    .solution-section {
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .solution-section h2 {
+      font-size: 32px;
+      color: #0e7490;
+      margin: 0 0 10px 0;
+    }
+    .solution-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .feature-check {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .feature-text {
+      font-size: 14px;
+      color: #333;
+    }
+    
+    .comparison-section {
+      background: #f0fdfa;
+      padding: 40px 30px;
+    }
+    .comparison-section h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #0e7490;
+      margin: 0 0 25px 0;
+    }
+    .comparison-table {
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .comparison-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: #0e7490;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .comparison-header div {
+      padding: 15px;
+      text-align: center;
+    }
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .comparison-row:last-child {
+      border-bottom: none;
+    }
+    .comparison-row div {
+      padding: 12px 15px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .comparison-row div:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: #333;
+      background: #f8fafc;
+    }
+    .comparison-bad {
+      color: #dc2626;
+    }
+    .comparison-good {
+      color: #059669;
+      font-weight: 600;
+    }
+    
+    .testimonial-section {
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .testimonial-section h2 {
+      font-size: 28px;
+      color: #0e7490;
+      margin: 0 0 30px 0;
+    }
+    .testimonial {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .testimonial::before {
+      content: '"';
+      font-size: 80px;
+      color: #0891b2;
+      opacity: 0.2;
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      font-family: Georgia, serif;
+    }
+    .testimonial-text {
+      font-size: 16px;
+      font-style: italic;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-author {
+      font-size: 14px;
+      color: #0e7490;
+      font-weight: bold;
+    }
+    .testimonial-location {
+      font-size: 12px;
+      color: #888;
+    }
+    .before-after {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .before-after-item {
+      text-align: center;
+    }
+    .before-after-icon {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+    .before-after-label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .urgency-section {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      padding: 30px;
+      text-align: center;
+      color: white;
+    }
+    .urgency-section h2 {
+      font-size: 32px;
+      margin: 0 0 15px 0;
+      text-transform: uppercase;
+    }
+    .seat-counter {
+      background: white;
+      color: #dc2626;
+      display: inline-block;
+      padding: 15px 40px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+    .seat-number {
+      font-size: 48px;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .seat-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .urgency-date {
+      font-size: 22px;
+      margin-top: 15px;
+    }
+    .urgency-date strong {
+      color: #fbbf24;
+    }
+    
+    .package-section {
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .package-section h2 {
+      font-size: 28px;
+      color: #0e7490;
+      margin: 0 0 10px 0;
+    }
+    .package-subtitle {
+      color: #666;
+      margin-bottom: 25px;
+    }
+    .package-box {
+      background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .package-badge {
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: #dc2626;
+      color: white;
+      padding: 5px 40px;
+      font-size: 12px;
+      font-weight: bold;
+      transform: rotate(45deg);
+      text-transform: uppercase;
+    }
+    .package-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .package-features {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+    .package-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .package-feature:last-child {
+      border-bottom: none;
+    }
+    .package-feature-icon {
+      font-size: 20px;
+    }
+    .package-price {
+      margin-top: 20px;
+    }
+    .price-label {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    .price-value {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .price-note {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 5px;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 32px;
+      color: #1a1a1a;
+      margin: 0 0 15px 0;
+    }
+    .cta-phone {
+      font-size: 42px;
+      font-weight: bold;
+      color: #0e7490;
+      margin: 20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .cta-subtitle {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+      color: white;
+      padding: 20px 50px;
+      font-size: 22px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .credentials {
+      background: #1a1a1a;
+      padding: 25px 30px;
+      text-align: center;
+    }
+    .credentials-title {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    .credentials-logos {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .credential {
+      background: #2a2a2a;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 11px;
+      color: #888;
+      border: 1px solid #333;
+    }
+    
+    .disclaimer {
+      background: #f8fafc;
+      padding: 20px 30px;
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      line-height: 1.6;
+    }
+    
+    .doctor-box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 500px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .doctor-icon {
+      font-size: 60px;
+    }
+    .doctor-content {
+      text-align: left;
+    }
+    .doctor-quote {
+      font-style: italic;
+      color: #444;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .doctor-name {
+      font-size: 12px;
+      color: #0e7490;
+      font-weight: bold;
+    }
+    .doctor-title {
+      font-size: 11px;
+      color: #888;
+    }
+
+    .starburst {
+      background: #dc2626;
+      color: white;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      line-height: 1.2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    
+    <div class="header-banner">
+      ⚠️ Limited Availability — Only 1 Seat Remaining — January 6th Departure ⚠️
+    </div>
+    
+    <div class="hero">
+      <div class="clinic-name">✨ The Turks & Caicos Institute for Therapeutic Affection ✨</div>
+      <h1>Are You Suffering From Kiss Debt?</h1>
+      <div class="hero-subtitle">Tired of The Great Longing? There's a better way.</div>
+      <div class="hero-cta">Discover Paradise Recovery™</div>
+    </div>
+    
+    <div class="problem-section">
+      <h2>😔 Do These Symptoms Sound Familiar?</h2>
+      <p>Millions suffer in silence. You don't have to be one of them.</p>
+      <div class="symptoms">
+        <div class="symptom">
+          <div class="symptom-icon">💔</div>
+          <div class="symptom-text">Chronic kiss deficit exceeding 4,800+ units</div>
+        </div>
+        <div class="symptom">
+          <div class="symptom-icon">📈</div>
+          <div class="symptom-text">Compounding interest overwhelming your system</div>
+        </div>
+        <div class="symptom">
+          <div class="symptom-icon">🦠</div>
+          <div class="symptom-text">Persistent Bartonella "party" activity</div>
+        </div>
+        <div class="symptom">
+          <div class="symptom-icon">😴</div>
+          <div class="symptom-text">Inability to nap peacefully</div>
+        </div>
+        <div class="symptom">
+          <div class="symptom-icon">🌍</div>
+          <div class="symptom-text">7,247 km supply chain gap</div>
+        </div>
+        <div class="symptom">
+          <div class="symptom-icon">😩</div>
+          <div class="symptom-text">Regional interest at unbearable levels</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="solution-section">
+      <h2>🌴 Introducing Paradise Recovery™</h2>
+      <div class="solution-subtitle">The world's first luxury FBK therapy destination</div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Private jet transport from Scottsdale</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Glorious private villa accommodation</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Unlimited Researcher access (700× certified)</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Warm Caribbean waters (+40% receptor enhancement)</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Comprehensive full-body protocols</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Regional attention as needed</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Extended treatment duration</div>
+        </div>
+        <div class="feature">
+          <div class="feature-check">✓</div>
+          <div class="feature-text">Complete pathogen surrender guaranteed*</div>
+        </div>
+      </div>
+      
+      <div class="doctor-box">
+        <div class="doctor-icon">👨‍⚕️</div>
+        <div class="doctor-content">
+          <div class="doctor-quote">"Based on peer-reviewed research and extensive modeling, our recommendation is clear: she should go. The therapeutic implications are extraordinary."</div>
+          <div class="doctor-name">Lead Researcher</div>
+          <div class="doctor-title">Lithuania Institute for Intimacy Studies</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="comparison-section">
+      <h2>📊 Why Choose Paradise Recovery™?</h2>
+      <div class="comparison-table">
+        <div class="comparison-header">
+          <div>Factor</div>
+          <div>Waiting Until Jan 15</div>
+          <div>Paradise Recovery™</div>
+        </div>
+        <div class="comparison-row">
+          <div>Resolution Date</div>
+          <div class="comparison-bad">January 15 😢</div>
+          <div class="comparison-good">January 6! 🎉</div>
+        </div>
+        <div class="comparison-row">
+          <div>Location</div>
+          <div class="comparison-bad">Cold. Indoors.</div>
+          <div class="comparison-good">Caribbean Paradise 🌴</div>
+        </div>
+        <div class="comparison-row">
+          <div>Transport</div>
+          <div class="comparison-bad">Commercial flights 😒</div>
+          <div class="comparison-good">Private Jet ✈️</div>
+        </div>
+        <div class="comparison-row">
+          <div>Accommodation</div>
+          <div class="comparison-bad">Standard</div>
+          <div class="comparison-good">Glorious Villa 🏝️</div>
+        </div>
+        <div class="comparison-row">
+          <div>Water Salinity</div>
+          <div class="comparison-bad">Suboptimal</div>
+          <div class="comparison-good">+40% Enhancement 🌊</div>
+        </div>
+        <div class="comparison-row">
+          <div>Total Kiss Debt</div>
+          <div class="comparison-bad">~38,000 kisses</div>
+          <div class="comparison-good">~28,500 kisses 📉</div>
+        </div>
+        <div class="comparison-row">
+          <div>Pathogen Outlook</div>
+          <div class="comparison-bad">Uncertain</div>
+          <div class="comparison-good">COMPLETE SURRENDER 🏳️</div>
+        </div>
+        <div class="comparison-row">
+          <div>Overall Vibe</div>
+          <div class="comparison-bad">The Great Longing continues</div>
+          <div class="comparison-good">PARADISE 😍</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonial-section">
+      <h2>💬 What Our Patients Say</h2>
+      <div class="testimonial">
+        <div class="testimonial-text">Before I discovered Paradise Recovery™, my Bartonella Party Activity Index was at 97%. The Great Longing felt endless. Now? Complete silence. Complete remission. Complete happiness. Thank you, Researcher. Thank you, Caribbean.</div>
+        <div class="testimonial-author">— K.B.</div>
+        <div class="testimonial-location">Vilnius, Lithuania → Turks & Caicos</div>
+      </div>
+      <div class="before-after">
+        <div class="before-after-item">
+          <div class="before-after-icon">😰</div>
+          <div class="before-after-label">Before</div>
+        </div>
+        <div class="before-after-item">
+          <div class="before-after-icon">➡️</div>
+          <div class="before-after-label"></div>
+        </div>
+        <div class="before-after-item">
+          <div class="before-after-icon">🥰</div>
+          <div class="before-after-label">After</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="urgency-section">
+      <h2>⚠️ Space Is Extremely Limited!</h2>
+      <p>Due to the exclusive nature of this program, availability is severely restricted.</p>
+      <div class="seat-counter">
+        <div class="seat-number">1</div>
+        <div class="seat-label">Seat Remaining</div>
+      </div>
+      <div class="urgency-date">
+        Private jet departs <strong>January 6, 2026</strong><br>
+        from Scottsdale, AZ — Morning
+      </div>
+      <p style="margin-top: 15px; font-size: 18px;">Don't let The Great Longing continue a single day longer than necessary!</p>
+    </div>
+    
+    <div class="package-section">
+      <h2>💎 The Complete Paradise Package</h2>
+      <div class="package-subtitle">Everything you need for total recovery</div>
+      <div class="package-box">
+        <div class="package-badge">All-Inclusive</div>
+        <div class="package-title">🌴 Turks & Caicos FBK Retreat 🌴</div>
+        <div class="package-features">
+          <div class="package-feature">
+            <span class="package-feature-icon">✈️</span>
+            <span>Private jet from Scottsdale (Jan 6 AM)</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">🏝️</span>
+            <span>Luxury villa accommodation</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">💋</span>
+            <span>Unlimited 700× certified FBK therapy</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">🌊</span>
+            <span>Caribbean water immersion sessions</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">☀️</span>
+            <span>Tropical sun exposure optimization</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">🎯</span>
+            <span>Targeted regional attention protocols</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">🏳️</span>
+            <span>Guaranteed pathogen surrender*</span>
+          </div>
+          <div class="package-feature">
+            <span class="package-feature-icon">❤️</span>
+            <span>Extended quality time with The Researcher</span>
+          </div>
+        </div>
+        <div class="package-price">
+          <div class="price-label">Investment in Your Complete Recovery:</div>
+          <div class="price-value">PRICELESS</div>
+          <div class="price-note">(Also: Included. You're invited. Please come.)</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cta-section">
+      <h2>🌟 RSVP Now to Secure Your Seat!</h2>
+      <div class="cta-subtitle">The villa is booked. The jet is scheduled. We just need YOU.</div>
+      <div class="cta-phone">1-800-FBK-CURE</div>
+      <p style="margin-bottom: 20px; color: #666;">(Or just tell The Researcher "yes")</p>
+      <a href="#" class="cta-button">✨ Reserve My Seat Now ✨</a>
+    </div>
+    
+    <div class="credentials">
+      <div class="credentials-title">As Featured In</div>
+      <div class="credentials-logos">
+        <div class="credential">Nature Reviews Immunology</div>
+        <div class="credential">International Microbial Observer</div>
+        <div class="credential">Financial Times Affection Markets</div>
+        <div class="credential">IKF Certified</div>
+        <div class="credential">Lithuania Institute Approved</div>
+      </div>
+    </div>
+    
+    <div class="disclaimer">
+      *Results may vary. 700-fold efficacy differential applies only to Researcher-derived treatments. Substitute practitioners not available due to specificity requirements (see: Nature Reviews Immunology, 2025). Polyamorous solutions have been evaluated and deemed economically irrational given market particularities. One seat remaining on aircraft. Offer valid for K. Body only. Bartonella and Babesia surrender rates based on predictive modeling; actual surrender may be even more complete. The term "glorious" to describe the villa has been independently verified by multiple sources. Regional attention provided on as-needed basis; certain regions remain classified but will receive appropriate coverage. Carrots not included but can be arranged. Departure January 6, 2026 from Scottsdale, AZ. Don't overthink it. Just come. Please. 🌴💕
+    </div>
+    
+  </div>
+  
+</body>
+</html>
